@@ -5,12 +5,12 @@ import java.util.UUID;
 /**
  * 
  * 线程处理<br>
+ * 
  * @author fugaoyang
  *
  */
-
 public class ThreadLogUtils {
-	
+
 	private static ThreadLogUtils instance = null;
 
 	private ThreadLogUtils() {
@@ -26,7 +26,6 @@ public class ThreadLogUtils {
 		}
 	};
 
-
 	// 当前线程的UUID信息，主要用于打印日志；
 	private static ThreadLocal<String> currLogUuid = new InheritableThreadLocal<String>() {
 		@Override
@@ -41,17 +40,16 @@ public class ThreadLogUtils {
 			return UUIDGenerator.getUuid();
 		}
 	};
-	
 
 	public static void clear(Boolean isNew) {
 		if (isNew) {
 
 			currLogUuid.remove();
-			
+
 			__flag.remove();
-			
+
 			currThreadUuid.remove();
-			
+
 		}
 	}
 
@@ -66,11 +64,11 @@ public class ThreadLogUtils {
 	public static String getCurrThreadUuid() {
 		return currThreadUuid.get();
 	}
-	
+
 	public static void clearCurrThreadUuid() {
 		currThreadUuid.remove();
 	}
-	
+
 	public static String getLogPrefix() {
 		if (!isInitialized()) {
 			return "";
@@ -78,7 +76,6 @@ public class ThreadLogUtils {
 
 		return "<uuid=" + getCurrLogUuid() + ">";
 	}
-
 
 	private static boolean isInitialized() {
 		return __flag.get() != null;
@@ -107,4 +104,3 @@ public class ThreadLogUtils {
 	}
 
 }
-
