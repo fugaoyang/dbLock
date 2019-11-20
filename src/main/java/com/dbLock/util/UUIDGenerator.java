@@ -2,17 +2,6 @@ package com.dbLock.util;
 
 import java.util.UUID;
 
-/**
- * 
- * Application: 核心交易<br/>
- * Description: <br/>
- * Copyright: Copyright (c) 2016 上海华信证券<br/>
- * Create Date：2016年7月14日<br/>
- * 
- * @Author huangxu
- * @Version 1.0
- *
- */
 public class UUIDGenerator {
 
 	public static String getUuid() {
